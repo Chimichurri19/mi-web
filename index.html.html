@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="es-CL">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- SEO básico: cambia "NutriPlan" por el nombre real de tu marca -->
+<title>NutriPlan | Planes alimenticios, seguimiento e IA para nutricionistas y pacientes</title>
+<meta name="description" content="Plataforma que conecta nutricionistas y pacientes: planes alimenticios, seguimiento diario y reemplazos de comidas con inteligencia artificial. Solicita acceso anticipado.">
+<meta name="theme-color" content="#2E7D32">
+<meta property="og:type" content="website">
+<meta property="og:title" content="NutriPlan: la forma inteligente de conectar nutricionistas y pacientes">
+<meta property="og:description" content="Gestiona planes alimenticios, haz seguimiento y recibe reemplazos con IA. Únete a la lista de espera.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E🥗%3C/text%3E%3C/svg%3E">
+<!-- Una sola tipografía (Manrope), solo 3 pesos, con display=swap para no bloquear el render -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;800&display=swap" rel="stylesheet">
+<script>document.documentElement.classList.add('js')</script>
+<noscript><style>.js .rv{opacity:1!important;transform:none!important}</style></noscript>
+<style>
+/* ===== Paleta y base ===== */
+:root{--g1:#2E7D32;--g2:#66BB6A;--soft:#F5F7FA;--ink:#263238;--cta:#FF6F00;--muted:#546E7A;--line:#E3E8EC;--r:14px}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth;scroll-padding-top:76px}
+body{font-family:Manrope,system-ui,-apple-system,"Segoe UI",sans-serif;color:var(--ink);background:#fff;line-height:1.6;-webkit-font-smoothing:antialiased}
+button,input,textarea{font:inherit;color:inherit}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--g2);outline-offset:3px}
+.wrap{width:min(1120px,100% - 2.5rem);margin-inline:auto}
+.sec{padding:clamp(3.5rem,8vw,6.5rem) 0}
+h1,h2,h3{line-height:1.12;letter-spacing:-.02em;font-weight:800}
+h1{font-size:clamp(2.2rem,5.6vw,3.9rem)}
+h2{font-size:clamp(1.7rem,3.6vw,2.6rem)}
+.lead{font-size:1.15rem;color:var(--muted);max-width:36rem;margin-top:1.25rem}
+.skip{position:absolute;left:-999px}.skip:focus{left:1rem;top:1rem;background:#fff;padding:.5rem 1rem;z-index:99}
+
+/* ===== Botones ===== */
+/* Texto oscuro sobre naranja: el blanco no cumple contraste AA */
+.btn{display:inline-block;text-decoration:none;font-weight:800;border-radius:12px;padding:.95rem 1.5rem;border:2px solid transparent;cursor:pointer;transition:transform .2s,box-shadow .2s,background .2s,color .2s}
+.btn-cta{background:var(--cta);color:var(--ink)}
+.btn-cta:hover{transform:translateY(-2px);box-shadow:0 10px 22px -8px rgba(255,111,0,.7)}
+.btn-ghost{border-color:var(--g1);color:var(--g1)}
+.btn-ghost:hover{background:var(--g1);color:#fff;transform:translateY(-2px)}
+.btn:disabled{opacity:.6;cursor:wait;transform:none}
+.cta{display:flex;flex-wrap:wrap;gap:.8rem;margin-top:2rem}
+
+/* ===== Cabecera ===== */
+.top{position:sticky;top:0;z-index:10;background:rgba(255,255,255,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.bar{display:flex;align-items:center;justify-content:space-between;height:64px}
+.logo{display:flex;align-items:center;gap:.5rem;font-weight:800;font-size:1.2rem;text-decoration:none}
+.bar nav{display:flex;align-items:center;gap:1.5rem;font-weight:600}
+.bar nav a:not(.btn){text-decoration:none}.bar nav a:not(.btn):hover{color:var(--g1)}
+.bar .btn{padding:.55rem 1rem;font-size:.9rem}
+@media(max-width:640px){.bar nav a:not(.btn){display:none}}
+
+/* ===== Hero ===== */
+.hero{background:var(--soft);overflow:hidden}
+.hero-g{display:grid;gap:3rem;align-items:center}
+@media(min-width:900px){.hero-g{grid-template-columns:1.1fr .9fr}}
+.plan-wrap{position:relative}
+.plan-wrap::before{content:"";position:absolute;width:75%;aspect-ratio:1;border-radius:50%;background:var(--g2);opacity:.22;right:-10%;top:-12%}
+.plan{position:relative;background:#fff;border:1px solid var(--line);border-radius:22px;padding:1.25rem;box-shadow:0 22px 44px -20px rgba(38,50,56,.4);max-width:420px;margin-inline:auto}
+.plan-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:.4rem}
+.plan-top span{font-size:.75rem;color:var(--muted);font-weight:600}
+.meal{padding:.9rem 0;border-top:1px solid #EEF1F4}
+.meal small{color:var(--muted);font-weight:600;font-size:.8rem}
+.meal p{font-weight:600}
+.chips{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:.5rem}
+.chips span{background:var(--soft);border-radius:99px;padding:.1rem .65rem;font-size:.8rem;font-weight:600}
+.done{color:var(--g1)}
+.swap{width:100%;margin-top:.4rem;background:var(--g1);color:#fff;border:0;border-radius:10px;padding:.7rem;font-weight:800;cursor:pointer;transition:background .2s}
+.swap:hover{background:#256528}
+.note{font-size:.8rem;color:var(--g1);font-weight:600;margin-top:.6rem}
+.flip{animation:pop .4s ease}
+@keyframes pop{from{opacity:0;transform:translateY(6px)}}
+
+/* ===== Beneficios ===== */
+.cols{display:grid;gap:1.25rem;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));list-style:none;padding:0;margin-top:2.5rem}
+.card{background:var(--soft);border-radius:var(--r);border-top:4px solid var(--g2);padding:1.75rem;transition:transform .25s,box-shadow .25s}
+.card:hover{transform:translateY(-4px);box-shadow:0 16px 30px -18px rgba(38,50,56,.45)}
+.card .ico{font-size:2rem;display:block;margin-bottom:.75rem}
+.card h3{font-size:1.2rem;margin-bottom:.5rem}
+.card p{color:var(--muted)}
+
+/* ===== Nosotros ===== */
+.about{background:var(--g1);color:#fff}
+.about-g{display:grid;gap:2rem}
+@media(min-width:900px){.about-g{grid-template-columns:1fr 1.2fr;gap:4rem}}
+.about p+p{margin-top:1rem}
+
+/* ===== Piloto (sustituye a los testimonios) ===== */
+.pilot{text-align:center}
+.pilot .lead{margin-inline:auto}
+
+/* ===== Formulario ===== */
+.contact{background:var(--soft)}
+.contact .head{text-align:center}
+.contact .head p{color:var(--muted);margin-top:.75rem}
+.box{background:#fff;border-radius:22px;padding:clamp(1.5rem,4vw,2.5rem);max-width:600px;margin:2rem auto 0;box-shadow:0 22px 44px -26px rgba(38,50,56,.45)}
+.f{display:block;margin-bottom:1.1rem}
+.f>span,legend{display:block;font-weight:600;font-size:.9rem;margin-bottom:.35rem}
+.f input,.f textarea{width:100%;border:1.5px solid #CFD8DC;border-radius:10px;padding:.8rem .9rem;background:#fff;transition:border-color .2s,box-shadow .2s}
+.f input:focus,.f textarea:focus{outline:0;border-color:var(--g1);box-shadow:0 0 0 3px rgba(102,187,106,.35)}
+fieldset{border:0;padding:0;margin-bottom:1.1rem}
+.seg{display:flex;gap:.6rem}
+.seg div{flex:1;position:relative}
+.seg input{position:absolute;opacity:0;inset:0;cursor:pointer}
+.seg label{display:block;text-align:center;border:1.5px solid #CFD8DC;border-radius:10px;padding:.7rem;font-weight:600;transition:background .2s,color .2s,border-color .2s}
+.seg input:checked+label{background:var(--g1);border-color:var(--g1);color:#fff}
+.seg input:focus-visible+label{outline:3px solid var(--g2);outline-offset:2px}
+.ck{display:flex;gap:.6rem;align-items:flex-start;font-size:.9rem;color:var(--muted);margin-bottom:1.25rem}
+.ck input{margin-top:.25rem;accent-color:var(--g1)}
+.hp{position:absolute;left:-9999px}
+.box .btn{width:100%}
+.status{margin-top:1rem;font-weight:600;min-height:1.5rem;text-align:center}
+.status[data-s=ok]{color:#1B5E20}.status[data-s=error]{color:#B71C1C}
+
+/* ===== Demo interactiva ===== */
+.app{background:#fff;border:1px solid var(--line);border-radius:22px;margin-top:2rem;overflow:hidden;box-shadow:0 22px 44px -26px rgba(38,50,56,.45)}
+.tabs{display:flex;gap:.5rem;padding:.8rem;background:var(--soft);border-bottom:1px solid var(--line);align-items:center;flex-wrap:wrap}
+.tabs button{border:0;background:transparent;padding:.6rem 1.1rem;border-radius:10px;font-weight:800;cursor:pointer;color:var(--muted)}
+.tabs button[aria-pressed=true]{background:var(--g1);color:#fff}
+.tabs .rst{margin-left:auto;font-size:.85rem;font-weight:600;text-decoration:underline}
+.pane{padding:clamp(1rem,3vw,1.75rem)}
+.kpis{display:grid;gap:.8rem;grid-template-columns:repeat(auto-fit,minmax(140px,1fr))}
+.kpi{background:var(--soft);border-radius:12px;padding:.9rem 1rem}
+.kpi b{display:block;font-size:1.7rem;font-weight:800;letter-spacing:-.02em;line-height:1.2}
+.kpi span{font-size:.8rem;color:var(--muted);font-weight:600}
+.g2{display:grid;gap:1.25rem;margin-top:1.25rem}
+@media(min-width:900px){.g2{grid-template-columns:1fr 1.15fr}}
+.pnl{border:1px solid var(--line);border-radius:var(--r);padding:1.1rem}
+.pnl h3{font-size:1.05rem;margin-bottom:.6rem;letter-spacing:0}
+.pt{display:flex;align-items:center;gap:.8rem;width:100%;text-align:left;background:#fff;border:1.5px solid transparent;border-radius:10px;padding:.65rem;margin-bottom:.3rem;cursor:pointer}
+.pt:hover{background:var(--soft)}.pt[aria-pressed=true]{border-color:var(--g1);background:var(--soft)}
+.pt .n{flex:1;min-width:0}.pt .n small{display:block;color:var(--muted)}
+.bar2{display:block;height:8px;border-radius:9px;background:#E3E8EC;overflow:hidden;margin-top:.35rem}
+.bar2 i{display:block;height:100%;background:var(--g2);border-radius:9px;transition:width .5s}
+.bdg{font-size:.75rem;font-weight:800;border-radius:99px;padding:.15rem .6rem;white-space:nowrap}
+.b-ok{background:#E8F5E9;color:#1B5E20}.b-wa{background:#FFF3E0;color:#9A4500}.b-rk{background:#FFEBEE;color:#B71C1C}
+.ring{width:130px;flex:none}.rt{font-size:18px;font-weight:800;fill:var(--ink)}.rs{font-size:9px;fill:var(--muted);font-weight:600}
+.bars{width:100%;max-width:440px;display:block}
+.row{display:flex;gap:1rem;align-items:center;flex-wrap:wrap}
+.mb{margin:.45rem 0;font-size:.85rem;font-weight:600}.mb>div:first-child{display:flex;justify-content:space-between}
+.mealc{border:1px solid var(--line);border-radius:var(--r);padding:1rem;margin-top:.9rem}
+.mh{display:flex;justify-content:space-between;align-items:center;gap:.6rem;flex-wrap:wrap;margin-bottom:.3rem}
+.it{display:flex;align-items:center;gap:.6rem;padding:.6rem 0;border-top:1px solid #EEF1F4;flex-wrap:wrap}
+.it .nm{flex:1;min-width:150px;font-weight:600}.it small{color:var(--muted);display:block;font-weight:400}
+.st{display:flex;align-items:center;gap:.4rem;font-weight:600;font-size:.9rem}
+.st button,.mini{border:1.5px solid #CFD8DC;background:#fff;border-radius:8px;min-width:32px;height:32px;font-weight:800;cursor:pointer}
+.mini{padding:0 .7rem;font-size:.8rem}.mini:hover,.st button:hover{border-color:var(--g1)}
+.chk{padding:0;font-size:1rem}.chk[aria-pressed=true]{background:var(--g1);border-color:var(--g1);color:#fff}
+.sw{display:flex;flex-wrap:wrap;gap:.4rem;flex-basis:100%;padding:.2rem 0 .4rem}.sw .mini{background:var(--soft);height:auto;min-height:32px;padding:.3rem .7rem}
+.edt{color:#9A4500;font-size:.75rem;font-weight:800}
+.fa{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:.8rem}
+.fa select,.fa input{border:1.5px solid #CFD8DC;border-radius:10px;padding:.55rem;background:#fff;min-width:0}.fa input{width:100px}
+.dn{color:var(--muted);font-size:.85rem}
+
+/* ===== Footer ===== */
+footer{background:var(--ink);color:#CFD8DC;padding:3rem 0 2rem}
+.foot{display:grid;gap:1.5rem}
+@media(min-width:760px){.foot{grid-template-columns:1.4fr 1fr;align-items:start}}
+footer .logo{color:#fff}
+footer ul{list-style:none;padding:0;display:flex;flex-wrap:wrap;gap:.6rem 1.4rem}
+footer a{text-decoration:none}footer a:hover{color:var(--g2)}
+.legal{margin-top:2rem;padding-top:1.25rem;border-top:1px solid #37474F;font-size:.85rem}
+
+/* ===== Animaciones al hacer scroll ===== */
+.js .rv{opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .7s ease;transition-delay:var(--d,0s)}
+.js .rv.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.js .rv{opacity:1;transform:none;transition:none}.flip{animation:none}.btn,.card{transition:none}}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Saltar al contenido</a>
+
+<header class="top"><div class="wrap bar">
+  <a class="logo" href="#" aria-label="NutriPlan, inicio">
+    <svg width="26" height="26" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 19c0-8 5-14 15-14 0 9-5 15-13 15" fill="#2E7D32"/><path d="M5 19c3-5 6-8 10-10" stroke="#fff" stroke-width="1.6" fill="none" stroke-linecap="round"/></svg>
+    NutriPlan
+  </a>
+  <nav aria-label="Principal">
+    <a href="#beneficios">Beneficios</a><a href="#demo">Demo</a><a href="#nosotros">Nosotros</a>
+    <a class="btn btn-cta" href="#acceso">Acceso anticipado</a>
+  </nav>
+</div></header>
+
+<main id="main">
+<!-- 1. HERO -->
+<section class="sec hero"><div class="wrap hero-g">
+  <div>
+    <h1>La forma inteligente de conectar nutricionistas y pacientes</h1>
+    <p class="lead">Gestiona planes alimenticios, realiza seguimiento nutricional y recibe recomendaciones personalizadas con inteligencia artificial para lograr mejores resultados.</p>
+    <div class="cta">
+      <a class="btn btn-cta" href="#acceso">Solicitar acceso anticipado</a>
+      <a class="btn btn-ghost" data-wa href="#">Hablar por WhatsApp</a>
+    </div>
+  </div>
+  <!-- Maqueta interactiva: muestra cómo se vería un reemplazo. Los valores son solo ilustrativos -->
+  <div class="plan-wrap">
+    <div class="plan" role="group" aria-label="Ejemplo ilustrativo de un plan diario">
+      <div class="plan-top"><strong>Tu plan de hoy</strong><span>Ejemplo ilustrativo</span></div>
+      <div class="meal" style="display:flex;justify-content:space-between;gap:1rem">
+        <div><small>Desayuno</small><p>Tostadas integrales con palta y huevo</p></div>
+        <span class="done" role="img" aria-label="Completado">✓</span>
+      </div>
+      <div class="meal" id="lunch" aria-live="polite">
+        <small>Almuerzo</small>
+        <p id="lunchName">Pollo al horno con arroz y ensalada</p>
+        <div class="chips" id="lunchChips"><span>520 kcal</span><span>P 38 g</span><span>C 55 g</span><span>G 14 g</span></div>
+      </div>
+      <button class="swap" id="swapBtn" type="button">Reemplazar almuerzo</button>
+      <p class="note" id="swapNote" hidden>Dentro de las equivalencias definidas por tu nutricionista</p>
+    </div>
+  </div>
+</div></section>
+
+<!-- 2. BENEFICIOS -->
+<section class="sec" id="beneficios"><div class="wrap">
+  <h2 class="rv">Todo el plan, en un solo lugar</h2>
+  <ul class="cols">
+    <li class="card rv"><span class="ico" aria-hidden="true">📋</span><h3>Gestión profesional</h3><p>Crea, organiza y administra planes alimenticios personalizados de forma simple y eficiente.</p></li>
+    <li class="card rv" style="--d:.12s"><span class="ico" aria-hidden="true">🥗</span><h3>Seguimiento para pacientes</h3><p>Los pacientes pueden visualizar, registrar y adaptar su alimentación diaria sin perder de vista sus objetivos.</p></li>
+    <li class="card rv" style="--d:.24s"><span class="ico" aria-hidden="true">🤖</span><h3>Inteligencia artificial nutricional</h3><p>Obtén reemplazos inteligentes de comidas y alimentos con perfiles nutricionales similares, siempre dentro de los límites que define el nutricionista.</p></li>
+  </ul>
+</div></section>
+
+<!-- DEMO INTERACTIVA: se dibuja desde el script al final del archivo -->
+<section class="sec contact" id="demo"><div class="wrap">
+  <div class="head rv">
+    <h2>Pruébalo tú mismo</h2>
+    <p>Cambia entre la vista del nutricionista y la del paciente. Lo que confirme la paciente aparece en el panel del nutricionista, y los alimentos que agregues al plan aparecen en su app.</p>
+  </div>
+  <div class="app" id="demoApp"><noscript><p class="pane">La demo necesita JavaScript activado.</p></noscript></div>
+</div></section>
+
+<!-- 3. NOSOTROS -->
+<section class="sec about" id="nosotros"><div class="wrap about-g">
+  <h2 class="rv">Transformando la nutrición con tecnología</h2>
+  <div class="rv" style="--d:.12s">
+    <p>Creemos que seguir una alimentación saludable no debería ser complejo. Nuestra misión es acercar a nutricionistas y pacientes mediante una plataforma intuitiva que simplifica el seguimiento nutricional y utiliza inteligencia artificial para adaptar recomendaciones a la vida real de cada persona.</p>
+    <p>Buscamos mejorar la adherencia a los tratamientos nutricionales, aumentar los resultados obtenidos por los pacientes y entregar a los profesionales herramientas modernas para potenciar su trabajo.</p>
+  </div>
+</div></section>
+
+<!-- 4. PILOTO
+     Aquí iban los testimonios. No publiques citas inventadas: cuando tengas reales (con permiso),
+     reemplaza esta sección por <blockquote> con nombre, cargo y foto si la persona acepta. -->
+<section class="sec pilot"><div class="wrap">
+  <h2 class="rv">Lo estamos construyendo junto a nutricionistas</h2>
+  <p class="lead rv" style="--d:.1s">Estamos en etapa de validación, así que todavía no tenemos testimonios y no vamos a inventarlos. Si ejerces como nutricionista, cuéntanos cómo armas tus planes hoy y ayúdanos a decidir qué construir primero.</p>
+  <div class="cta rv" style="justify-content:center;--d:.2s"><a class="btn btn-cta" href="#acceso">Quiero participar en el piloto</a></div>
+</div></section>
+
+<!-- 5. FORMULARIO -->
+<section class="sec contact" id="acceso"><div class="wrap">
+  <div class="head rv">
+    <h2>Sé parte de los primeros usuarios</h2>
+    <p>Únete a nuestra lista de espera y recibe actualizaciones exclusivas sobre el lanzamiento.</p>
+  </div>
+  <form class="box rv" id="waitlist" novalidate>
+    <label class="f"><span>Nombre</span><input name="nombre" autocomplete="name" required></label>
+    <label class="f"><span>Correo electrónico</span><input name="correo" type="email" autocomplete="email" required></label>
+    <label class="f"><span>WhatsApp</span><input name="whatsapp" type="tel" autocomplete="tel" placeholder="+56 9 1234 5678"></label>
+    <fieldset>
+      <legend>Tipo de usuario</legend>
+      <div class="seg">
+        <div><input type="radio" name="tipo" id="t1" value="Nutricionista" checked><label for="t1">Nutricionista</label></div>
+        <div><input type="radio" name="tipo" id="t2" value="Paciente"><label for="t2">Paciente</label></div>
+      </div>
+    </fieldset>
+    <label class="f"><span>Comentarios</span><textarea name="comentarios" rows="3"></textarea></label>
+    <!-- Trampa anti-spam: los humanos no lo ven; si viene relleno, se descarta -->
+    <div class="hp" aria-hidden="true"><label>Empresa <input name="empresa" tabindex="-1" autocomplete="off"></label></div>
+    <label class="ck"><input type="checkbox" name="consentimiento" value="si" required><span>Acepto que usen mis datos para contactarme sobre el lanzamiento.</span></label>
+    <button class="btn btn-cta" type="submit">Quiero acceso anticipado</button>
+    <p class="status" id="status" role="status" aria-live="polite"></p>
+  </form>
+</div></section>
+</main>
+
+<!-- 6. FOOTER -->
+<footer><div class="wrap">
+  <div class="foot">
+    <div>
+      <a class="logo" href="#">NutriPlan</a>
+      <p style="margin-top:.6rem;max-width:30rem">Plataforma de nutrición que conecta pacientes con nutricionistas de manera simple e inteligente.</p>
+    </div>
+    <ul>
+      <li><a data-social="instagram" href="#" rel="noopener">Instagram</a></li>
+      <li><a data-social="facebook" href="#" rel="noopener">Facebook</a></li>
+      <li><a data-social="linkedin" href="#" rel="noopener">LinkedIn</a></li>
+      <li><a data-wa href="#">WhatsApp</a></li>
+      <li><a data-mail href="#">Correo</a></li>
+    </ul>
+  </div>
+  <p class="legal">© 2026 Todos los derechos reservados.</p>
+</div></footer>
+
+<script>
+/* ===== CONFIGURACIÓN: edita solo este bloque ===== */
+const CONFIG = {
+  whatsapp: '56900000000',                 // con código de país, sin + ni espacios
+  whatsappMsg: 'Hola, quiero más información sobre el acceso anticipado.',
+  email: 'hola@tudominio.cl',
+  instagram: 'https://instagram.com/tu_cuenta',
+  facebook: 'https://facebook.com/tu_pagina',
+  linkedin: 'https://linkedin.com/company/tu_empresa',
+  // Un archivo HTML estático no guarda datos. Pega aquí la URL de un servicio de formularios
+  // (Formspree, Getform, Make, Google Apps Script...) o el formulario no enviará nada.
+  formEndpoint: ''
+};
+
+/* Enlaces de contacto y redes desde CONFIG */
+document.querySelectorAll('[data-wa]').forEach(a => {
+  a.href = `https://wa.me/${CONFIG.whatsapp}?text=${encodeURIComponent(CONFIG.whatsappMsg)}`;
+  a.target = '_blank'; a.rel = 'noopener';
+});
+document.querySelectorAll('[data-social]').forEach(a => { a.href = CONFIG[a.dataset.social]; a.target = '_blank'; });
+document.querySelector('[data-mail]').href = 'mailto:' + CONFIG.email;
+
+/* Aparición suave al hacer scroll */
+const rv = document.querySelectorAll('.rv');
+if ('IntersectionObserver' in window) {
+  const io = new IntersectionObserver(es => es.forEach(e => {
+    if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+  }), { threshold: .15 });
+  rv.forEach(el => io.observe(el));
+} else rv.forEach(el => el.classList.add('in'));
+
+/* Maqueta del hero: alterna entre la comida original y su reemplazo (datos ilustrativos) */
+const meals = [
+  { n: 'Pollo al horno con arroz y ensalada', m: ['520 kcal', 'P 38 g', 'C 55 g', 'G 14 g'] },
+  { n: 'Pavo salteado con quinoa y verduras', m: ['510 kcal', 'P 37 g', 'C 52 g', 'G 14 g'] }
+];
+let cur = 0;
+const lunch = document.getElementById('lunch'), swapBtn = document.getElementById('swapBtn'),
+      lunchName = document.getElementById('lunchName'), lunchChips = document.getElementById('lunchChips'),
+      swapNote = document.getElementById('swapNote');
+swapBtn.addEventListener('click', () => {
+  cur = 1 - cur;
+  lunchName.textContent = meals[cur].n;
+  lunchChips.innerHTML = meals[cur].m.map(t => `<span>${t}</span>`).join('');
+  swapNote.hidden = cur === 0;
+  swapBtn.textContent = cur ? 'Volver al original' : 'Reemplazar almuerzo';
+  lunch.classList.remove('flip'); void lunch.offsetWidth; lunch.classList.add('flip'); // reinicia la animación
+});
+
+/* Formulario de lista de espera */
+const form = document.getElementById('waitlist'), status = document.getElementById('status');
+const say = (s, t) => { status.dataset.s = s; status.textContent = t; };
+form.addEventListener('submit', async e => {
+  e.preventDefault();
+  if (form.empresa.value) return;                       // anti-spam: descarta si el campo trampa viene relleno
+  if (!form.checkValidity()) { form.reportValidity(); return; }
+  if (!CONFIG.formEndpoint) {
+    console.warn('formEndpoint vacío: el formulario no está conectado a ningún servicio.');
+    say('error', 'El formulario aún no está conectado. Escríbenos por WhatsApp mientras tanto.');
+    return;
+  }
+  const data = Object.fromEntries(new FormData(form)); delete data.empresa;
+  const btn = form.querySelector('button'); btn.disabled = true; say('', 'Enviando…');
+  try {
+    const r = await fetch(CONFIG.formEndpoint, { method: 'POST', headers: { 'Content-Type': 'application/json', Accept: 'application/json' }, body: JSON.stringify(data) });
+    if (!r.ok) throw new Error(r.status);
+    form.reset(); say('ok', 'Listo, quedaste en la lista de espera. Te escribiremos pronto.');
+  } catch (err) {
+    say('error', 'No se pudo enviar tu solicitud. Revisa tu conexión e inténtalo de nuevo.');
+  }
+  btn.disabled = false;
+});
+</script>
+<script>
+(() => {
+/* ===== DEMO: todo ocurre en el navegador, con datos ficticios ===== */
+const $ = document.getElementById('demoApp'), R = Math.round;
+/* Biblioteca de alimentos: [grupo, unidad, porción base, kcal, proteína, carbohidrato, grasa]. Valores referenciales */
+const F = {
+ 'Pechuga de pollo':['prot','g',100,165,31,0,4],'Pavo molido':['prot','g',100,150,27,0,4],'Merluza':['prot','g',100,90,19,0,1.5],
+ 'Atún al agua':['prot','g',100,110,25,0,1],'Huevo':['prot','un',1,70,6,.5,5],
+ 'Arroz cocido':['carb','g',100,130,2.7,28,.3],'Quinoa cocida':['carb','g',100,120,4.4,21,1.9],'Papa cocida':['carb','g',100,87,1.9,20,.1],
+ 'Avena':['carb','g',100,380,13,67,7],'Pan integral':['carb','g',100,250,10,45,3],
+ 'Ensalada mixta':['veg','g',100,25,1.5,4,.3],'Brócoli':['veg','g',100,35,2.4,7,.4],
+ 'Palta':['fat','g',100,160,2,9,15],'Nueces':['fat','g',100,650,15,14,65],
+ 'Yogurt natural':['lac','g',100,60,4,5,3],'Leche descremada':['lac','ml',100,35,3.4,5,.1],
+ 'Manzana':['fru','g',100,52,.3,14,.2],'Plátano':['fru','g',100,89,1.1,23,.3]};
+const mac = (f, q) => { const a = F[f], r = q / a[2]; return { k: a[3]*r, p: a[4]*r, c: a[5]*r, f: a[6]*r }; };
+const stp = f => F[f][1] === 'un' ? 1 : 10;
+/* Cada ítem guarda lo planificado (pf, pq) y lo que el paciente registró (f, q); d = confirmado */
+const mk = () => [['Desayuno',[['Avena',40],['Yogurt natural',150],['Plátano',100]]],['Colación',[['Manzana',150],['Nueces',20]]],
+ ['Almuerzo',[['Pechuga de pollo',150],['Arroz cocido',150],['Ensalada mixta',150],['Palta',50]]],
+ ['Once',[['Pan integral',80],['Palta',50],['Huevo',1]]],['Cena',[['Merluza',180],['Papa cocida',200],['Brócoli',150]]]]
+ .map(([n, l]) => ({ n, i: l.map(([f, q]) => ({ f, q, pf: f, pq: q, d: 0 })) }));
+let PT, S;
+const init = () => {
+  PT = [{n:'Camila Rojas',o:'Pérdida de peso',w:[78,85,70,90,82,88]},{n:'Matías Soto',o:'Masa muscular',w:[92,95,88,97,90,94],t:96},
+        {n:'Valentina Paz',o:'Control glucémico',w:[60,55,48,62,50,58],t:45},{n:'Diego Fuentes',o:'Salud cardiovascular',w:[75,70,80,72,68,74],t:71}]
+        .map(p => ({ ...p, plan: mk() }));
+  PT[0].plan.slice(0, 3).forEach(m => m.i.forEach(x => x.d = 1));   // Camila ya confirmó 3 comidas hoy
+  S = { role: 'n', sel: 0, open: '', err: '', wt: [68.6, 68.3, 68.1, 67.8] };
+};
+
+/* ===== Cálculos ===== */
+const items = pl => pl.flatMap(m => m.i);
+const tot = (pl, eat) => items(pl).reduce((a, x) => { if (eat && !x.d) return a; const m = eat ? mac(x.f, x.q) : mac(x.pf, x.pq);
+  a.k += m.k; a.p += m.p; a.c += m.c; a.f += m.f; return a; }, { k: 0, p: 0, c: 0, f: 0 });
+const scale = (t, f) => ({ k: t.k*f, p: t.p*f, c: t.c*f, f: t.f*f });
+/* Cumplimiento: cada ítem confirmado suma según qué tan cerca quedó del plan en kcal (pasarse o quedarse corto resta) */
+const score = x => { if (!x.d) return 0; const a = mac(x.pf, x.pq).k; return Math.max(0, 1 - Math.abs(mac(x.f, x.q).k - a) / a); };
+const comp = pl => { const w = items(pl), a = w.reduce((s, x) => s + mac(x.pf, x.pq).k, 0);
+  return a ? 100 * w.reduce((s, x) => s + score(x) * mac(x.pf, x.pq).k, 0) / a : 0; };
+const avg = a => a.reduce((s, x) => s + x, 0) / a.length;
+const today = i => i ? PT[i].t : comp(PT[0].plan);
+const week = i => PT[i].w.concat(today(i));
+
+/* ===== Gráficos SVG ===== */
+const ring = (v, max, a, b) => { const C = 2 * Math.PI * 42, f = Math.min(1, v / max || 0);
+  return `<svg viewBox="0 0 100 100" class="ring" role="img" aria-label="${a} ${b}"><circle cx="50" cy="50" r="42" fill="none" stroke="#E3E8EC" stroke-width="10"/><circle cx="50" cy="50" r="42" fill="none" stroke="var(--g1)" stroke-width="10" stroke-linecap="round" stroke-dasharray="${f*C} ${C}" transform="rotate(-90 50 50)"/><text x="50" y="52" text-anchor="middle" class="rt">${a}</text><text x="50" y="66" text-anchor="middle" class="rs">${b}</text></svg>`; };
+const bars = v => { const h = 110, d = new Date().getDay();
+  return `<svg viewBox="0 0 310 ${h+22}" class="bars" role="img" aria-label="Cumplimiento diario de los últimos 7 días, hoy en naranja"><line x1="0" x2="310" y1="${h*.2}" y2="${h*.2}" stroke="#90A4AE" stroke-dasharray="4 4"/><text x="308" y="${h*.2-4}" text-anchor="end" class="rs">meta 80%</text>` +
+  v.map((x, i) => { const bh = h * x / 100, cx = i * 43 + 17;
+    return `<rect x="${cx-14}" y="${h-bh}" width="28" height="${bh}" rx="6" fill="${i === 6 ? 'var(--cta)' : 'var(--g2)'}"/><text x="${cx}" y="${h-bh-4}" text-anchor="middle" class="rs">${R(x)}</text><text x="${cx}" y="${h+14}" text-anchor="middle" class="rs">${'DLMXJVS'[(d - (6 - i) + 7) % 7]}</text>`; }).join('') + '</svg>'; };
+const spark = v => { const mn = Math.min(...v) - .3, mx = Math.max(...v) + .3, pts = v.map((y, i) => [10 + i * 280 / Math.max(1, v.length - 1), 60 - 50 * (y - mn) / (mx - mn)]);
+  return `<svg viewBox="0 0 300 70" class="bars" role="img" aria-label="Evolución del peso"><polyline points="${pts.map(p => p.join(',')).join(' ')}" fill="none" stroke="var(--g1)" stroke-width="3" stroke-linejoin="round"/>${pts.map(p => `<circle cx="${p[0]}" cy="${p[1]}" r="3.5" fill="var(--g1)"/>`).join('')}</svg>`; };
+const mb = (l, c, p) => `<div class="mb"><div><span>${l}</span><span>${R(c)} / ${R(p)} g</span></div><span class="bar2"><i style="width:${Math.min(100, 100 * c / p || 0)}%"></i></span></div>`;
+const macs = (c, p) => mb('Proteínas', c.p, p.p) + mb('Carbohidratos', c.c, p.c) + mb('Grasas', c.f, p.f);
+const kpi = (b, s) => `<div class="kpi"><b>${b}</b><span>${s}</span></div>`;
+const badge = w => w >= 80 ? '<span class="bdg b-ok">En meta</span>' : w >= 60 ? '<span class="bdg b-wa">Atención</span>' : '<span class="bdg b-rk">En riesgo</span>';
+const err = () => `<p class="dn" style="color:#B71C1C" role="alert">${S.err}</p>`;
+
+/* ===== Vista nutricionista ===== */
+const nutri = () => {
+  const pts = PT.map((_, i) => ({ t: today(i), w: avg(week(i)) })), c = PT[0].plan, s = S.sel, P = PT[s], wk = week(s);
+  const tp = tot(P.plan, 0), te = s ? scale(tp, wk[6] / 100) : tot(P.plan, 1), dl = R(wk[6] - avg(wk.slice(0, 6)));
+  const team = [0,1,2,3,4,5,6].map(d => avg(PT.map((_, i) => week(i)[d])));
+  const conf = c.filter(m => m.i.length && m.i.every(x => x.d)).length;
+  return `<div class="kpis">${kpi(PT.length, 'Pacientes activos')}${kpi(R(avg(pts.map(p => p.t))) + '%', 'Cumplimiento promedio hoy')}${kpi(pts.filter(p => p.w < 60).length, 'Pacientes en riesgo (semana bajo 60%)')}${kpi(conf + '/' + c.length, 'Comidas de Camila confirmadas hoy')}</div>
+<div class="g2"><div class="pnl"><h3>Tus pacientes</h3>${PT.map((p, i) => `<button class="pt" data-a="sel" data-s="${i}" aria-pressed="${i === s}"><span class="n"><strong>${p.n}</strong><small>${p.o}</small><span class="bar2"><i style="width:${R(pts[i].w)}%"></i></span></span><span>${R(pts[i].w)}%</span>${badge(pts[i].w)}</button>`).join('')}
+<h3 style="margin-top:1.2rem">Promedio del consultorio, 7 días</h3>${bars(team)}</div>
+<div class="pnl"><h3>${P.n} · ${P.o}</h3><div class="row">${ring(wk[6], 100, R(wk[6]) + '%', 'hoy')}<div style="flex:1;min-width:180px"><p class="dn">${dl >= 0 ? '+' : ''}${dl} pts vs su promedio de los 6 días previos</p><p class="dn" style="margin-top:.5rem">Consumido hoy / plan</p>${macs(te, tp)}</div></div>
+<h3 style="margin:1.1rem 0 .4rem">Cumplimiento, 7 días</h3>${bars(wk)}</div></div>${plan(P, s)}`;
+};
+const plan = (P, s) => { const t = tot(P.plan, 0);
+  return `<div class="pnl" style="margin-top:1.25rem"><h3>Plan alimenticio de ${P.n}</h3><p class="dn">Total: ${R(t.k)} kcal · P ${R(t.p)} g · C ${R(t.c)} g · G ${R(t.f)} g.${s ? '' : ' Los cambios se ven al instante en la vista del paciente.'}</p>` +
+  P.plan.map((m, mi) => `<div class="mealc"><strong>${m.n}</strong>${m.i.map((x, ii) => `<div class="it"><div class="nm">${x.pf} · ${x.pq} ${F[x.pf][1]}<small>${R(mac(x.pf, x.pq).k)} kcal</small></div><button class="mini" data-a="del" data-m="${mi}" data-i="${ii}" aria-label="Quitar ${x.pf} de ${m.n}">Quitar</button></div>`).join('') || '<p class="dn">Sin alimentos</p>'}</div>`).join('') +
+  `<div class="fa"><select id="am" aria-label="Comida">${P.plan.map((m, i) => `<option value="${i}">${m.n}</option>`).join('')}</select><select id="af" aria-label="Alimento">${Object.keys(F).map(f => `<option value="${f}">${f} (${F[f][1]})</option>`).join('')}</select><input id="aq" type="number" min="1" max="2000" placeholder="Cantidad" aria-label="Cantidad"><button class="btn btn-cta" style="padding:.55rem 1.1rem" data-a="add">Agregar al plan</button></div>${err()}</div>`; };
+
+/* ===== Vista paciente (la plataforma ya trae el plan; el paciente confirma o ajusta) ===== */
+const item = (x, mi, ii) => { const a = mac(x.f, x.q), ed = x.f !== x.pf || x.q !== x.pq, at = `data-m="${mi}" data-i="${ii}"`;
+  return `<div class="it"><div class="nm">${x.f}${ed ? ' <span class="edt">editado</span>' : ''}<small>${R(a.k)} kcal · P ${R(a.p)} · C ${R(a.c)} · G ${R(a.f)}</small></div>
+<div class="st"><button data-a="q" data-d="-1" ${at} aria-label="Menos ${x.f}">−</button><span>${x.q} ${F[x.f][1]}</span><button data-a="q" data-d="1" ${at} aria-label="Más ${x.f}">+</button></div>
+<button class="mini" data-a="swp" ${at}>Cambiar</button><button class="mini chk" data-a="tog" ${at} aria-pressed="${!!x.d}" aria-label="Confirmar ${x.f}">✓</button>` +
+  (S.open === mi + '-' + ii ? `<div class="sw"><span class="dn" style="width:100%">Equivalentes con macros similares, dentro de lo que definió tu nutricionista:</span>${Object.keys(F).filter(n => n !== x.f && F[n][0] === F[x.f][0]).map(n => {
+    const u = F[n][1] === 'un' ? 1 : 5, q = Math.max(u, R(mac(x.pf, x.pq).k / (F[n][3] / F[n][2]) / u) * u);
+    return `<button class="mini" data-a="pick" data-f="${n}" data-q="${q}" ${at}>${n} ${q} ${F[n][1]} · ${R(mac(n, q).k)} kcal</button>`; }).join('')}</div>` : '') + '</div>'; };
+const meal = (m, mi) => { const mp = m.i.reduce((a, x) => a + mac(x.pf, x.pq).k, 0), all = m.i.length && m.i.every(x => x.d);
+  return `<div class="mealc"><div class="mh"><div><strong>${m.n}</strong> <span class="dn">${R(mp)} kcal en el plan</span></div><button class="mini" data-a="meal" data-m="${mi}">${all ? 'Desmarcar comida' : 'Confirmar comida'}</button></div>${m.i.map((x, ii) => item(x, mi, ii)).join('')}</div>`; };
+const pac = () => { const pl = PT[0].plan, te = tot(pl, 1), tp = tot(pl, 0), w = week(0), wt = S.wt, d0 = wt[wt.length - 1] - wt[0];
+  let n = 0, i = w[6] >= 80 ? 6 : 5; for (; i >= 0 && w[i] >= 80; i--) n++;
+  return `<div class="kpis">${kpi(R(w[6]) + '%', 'Cumplimiento hoy')}${kpi(R(te.k), 'kcal consumidas de ' + R(tp.k))}${kpi(n + (n === 1 ? ' día' : ' días'), 'Racha con 80% o más')}${kpi(R(avg(w)) + '%', 'Promedio de la semana')}${kpi(wt[wt.length - 1] + ' kg', (d0 > 0 ? '+' : '') + d0.toFixed(1) + ' kg desde el inicio')}</div>
+<div class="g2"><div class="pnl"><h3>Hola, Camila. Así vas hoy</h3><div class="row">${ring(te.k, tp.k, R(te.k), 'de ' + R(tp.k) + ' kcal')}<div style="flex:1;min-width:180px">${macs(te, tp)}</div></div></div>
+<div class="pnl"><h3>Tu semana</h3>${bars(w)}<h3 style="margin:1rem 0 .4rem">Peso</h3>${spark(wt)}<div class="fa"><input id="wi" type="number" step="0.1" min="30" max="250" placeholder="kg" aria-label="Peso en kilos"><button class="mini" data-a="w">Registrar peso</button></div>${err()}</div></div>
+<h3 style="margin-top:1.5rem">Tu plan de hoy <span class="dn">· confirma, ajusta la cantidad o cambia por un equivalente</span></h3>${pl.map(meal).join('')}`; };
+
+/* ===== Render y eventos ===== */
+const draw = b => {
+  const sig = b ? [...b.attributes].filter(t => t.name.startsWith('data-')).map(t => `[${t.name}="${t.value}"]`).join('') : '';
+  $.innerHTML = `<div class="tabs" role="group" aria-label="Vista de la demo"><button data-a="role" data-r="n" aria-pressed="${S.role === 'n'}">Soy nutricionista</button><button data-a="role" data-r="p" aria-pressed="${S.role === 'p'}">Soy paciente</button><button class="rst" data-a="rst">Reiniciar demo</button></div><div class="pane">${S.role === 'n' ? nutri() : pac()}<p class="dn" style="margin-top:1.2rem">Demo con datos ficticios. Los valores nutricionales son referenciales y no reemplazan el criterio profesional.</p></div>`;
+  const nb = sig && $.querySelector(sig); if (nb) nb.focus({ preventScroll: true });   // conserva el foco del teclado
+};
+$.addEventListener('click', e => {
+  const b = e.target.closest('[data-a]'); if (!b) return;
+  const a = b.dataset.a, m = +b.dataset.m, i = +b.dataset.i, c = PT[0].plan, x = c[m] && c[m].i[i]; S.err = '';
+  if (a === 'role') { S.role = b.dataset.r; S.open = ''; }
+  else if (a === 'sel') S.sel = +b.dataset.s;
+  else if (a === 'del') PT[S.sel].plan[m].i.splice(i, 1);
+  else if (a === 'add') { const f = $.querySelector('#af').value, q = parseFloat($.querySelector('#aq').value);
+    if (q >= 1 && q <= 2000) PT[S.sel].plan[+$.querySelector('#am').value].i.push({ f, q, pf: f, pq: q, d: 0 }); else S.err = 'Ingresa una cantidad entre 1 y 2000.'; }
+  else if (a === 'tog') x.d = x.d ? 0 : 1;
+  else if (a === 'q') { x.q = Math.max(stp(x.f), x.q + b.dataset.d * stp(x.f)); x.d = 1; }   // editar la cantidad también registra lo comido
+  else if (a === 'swp') S.open = S.open === m + '-' + i ? '' : m + '-' + i;
+  else if (a === 'pick') { x.f = b.dataset.f; x.q = +b.dataset.q; x.d = 1; S.open = ''; }
+  else if (a === 'meal') { const all = c[m].i.every(y => y.d); c[m].i.forEach(y => y.d = all ? 0 : 1); }
+  else if (a === 'w') { const v = parseFloat($.querySelector('#wi').value);
+    if (v >= 30 && v <= 250) { S.wt.push(v); if (S.wt.length > 8) S.wt.shift(); } else S.err = 'Ingresa un peso entre 30 y 250 kg.'; }
+  else if (a === 'rst') init();
+  draw(b);
+});
+init(); draw();
+})();
+</script>
+</body>
+</html>
